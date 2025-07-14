@@ -1,116 +1,134 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { useState, useEffect } from 'react';
 
 export default function Home() {
-  
-return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+
+  const [activeSection, setActiveSection] = useState('home');
+
+  // button ids and labels
+  const sections = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      setActiveSection(sectionId);
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      sections.forEach(section => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section.id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+
+      {/* 'navbar' which is just buttons at the top */}
+      <nav className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
+        <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-8 py-4 shadow-lg">
+          <div className="flex items-center space-x-2">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeSection === section.id
+                    ? 'text-white bg-blue-600 shadow-md'
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                }`}
+              >
+                {section.label}
+              </button>
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </nav>
+
+      {/* sections */}
+      <section id="home" className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-5xl font-bold text-gray-800 mb-6">home section</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              home section, sample lorem ipsum
+          </p>
+        </div>
+      </section>
+
+      <section id="about" className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-6">About Me</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            this is the about section where i'll probably have some intro about me, and some brief talk about my experience and whatnot
+          </p>
+        </div>
+      </section>
+
+      <section id="projects" className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-6">projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[1, 2, 3].map((project) => (
+              <div key={project} className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold mb-3">project {project}</h3>
+                <p className="text-gray-600">brief description of this project</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-6">Skills</h2>
+          <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+            {['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'CSS', 'HTML', 'Git'].map((skill) => (
+              <span key={skill} className="bg-blue-100 text-blue-800 px-5 py-2 rounded-full font-medium">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-6">get in touch</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+            ready to work or something? contact me
+          </p>
+          <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
+            Contact Me
+          </button>
+        </div>
+      </section>
     </div>
   );
 }
