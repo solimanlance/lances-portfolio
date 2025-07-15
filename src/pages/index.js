@@ -49,7 +49,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-sky-100">
 
       {/* 'navbar' which is just buttons at the top */}
       <nav className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
@@ -61,7 +61,7 @@ export default function Home() {
                 onClick={() => scrollToSection(section.id)}
                 className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeSection === section.id
-                    ? 'text-white bg-blue-600 shadow-md'
+                    ? 'text-white bg-[#01C2DF] shadow-md'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
                 }`}
               >
@@ -69,20 +69,28 @@ export default function Home() {
               </button>
             ))}
           </div>
+
         </div>
       </nav>
 
       {/* sections */}
       <section id="home" className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-5xl font-bold text-gray-800 mb-6">home section</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              home section, sample lorem ipsum
+          <h1 className="text-4xl font-bold text-gray-800 mb-6">👋 Hey there! I'm</h1>
+          <h1 className="text-8xl font-bold text-gray-800 mb-6">Lance Soliman</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto italic">
+              A software developer... (rotating text)
           </p>
+          <button
+                onClick={() => scrollToSection("projects")}
+                className= "mt-6 px-8 py-3 rounded-full text-medium font-medium transition-all duration-300 text-white bg-[#01C2DF] shadow-md hover:bg-sky-600"
+              >
+              See what I've built!
+          </button>
         </div>
       </section>
 
-      <section id="about" className="min-h-screen flex items-center justify-center bg-gray-50">
+      <section id="about" className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">About Me</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -105,7 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills" className="min-h-screen flex items-center justify-center bg-gray-50">
+      <section id="skills" className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">Skills</h2>
           <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
