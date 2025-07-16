@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import RotatingText from '../components/RotatingText';
+
 
 export default function Home() {
 
@@ -78,9 +80,10 @@ export default function Home() {
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-6">👋 Hey there! I'm</h1>
           <h1 className="text-8xl font-bold text-gray-800 mb-6">Lance Soliman</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto italic">
-              A software developer... (rotating text)
-          </p>
+          <div className = "-mt-4"> {/* negative margin */}
+           
+            <RotatingText />
+          </div>
           <button
                 onClick={() => scrollToSection("projects")}
                 className= "mt-6 px-8 py-3 rounded-full text-medium font-medium transition-all duration-300 text-white bg-[#01C2DF] shadow-md hover:bg-sky-600"
