@@ -4,9 +4,10 @@ const RotatingText = () => {
   const phrases = [
     "a computer science student. 💻",
     "a SpongeBob fanatic. 🧽",
-    "a caffiene enjoyer. 🍵",
+    "a caffeine enjoyer. 🍵",
     "a wannabe marathon runner. 🏃",
-    "an r&b listener. 🔊"
+    "an r&b listener. 🔊",
+    "a videographer. 🎥"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
