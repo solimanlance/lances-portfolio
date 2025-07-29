@@ -74,7 +74,7 @@ export default function Home() {
           </div>
         </div>
       </nav>
-        {/* sections */}
+      {/* sections */}
       <section id="home" className="min-h-[850px] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-6 mt-20">🙋🏻‍♂️ Hey there! I&apos;m</h1>
@@ -91,7 +91,7 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="absolute bottom-20 transform animate-bounce">
+        <div className="absolute bottom-20 transform -translate-x-1/2 animate-bounce hidden md:block">
           <svg
             className="w-8 h-8 text-[#199eb2]"
             fill="none"
