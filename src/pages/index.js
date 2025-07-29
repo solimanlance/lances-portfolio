@@ -92,6 +92,18 @@ export default function Home() {
               See what I've built!
           </button>
         </div>
+
+        <div className="absolute bottom-20 transform animate-bounce">
+          <svg
+            className="w-8 h-8 text-[#199eb2]"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m0 0l-7-7m7 7l7-7" />
+          </svg>
+        </div>
       </section>
 
       {/* ABOUT SECTION */}
