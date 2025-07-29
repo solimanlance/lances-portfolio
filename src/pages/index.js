@@ -77,7 +77,7 @@ export default function Home() {
       </nav>
 
       {/* sections */}
-      <section id="home" className="min-h-[800px] flex items-center justify-center">
+      <section id="home" className="min-h-[850px] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-6 mt-20">🙋🏻‍♂️ Hey there! I'm</h1>
           <h1 className="text-8xl font-bold text-gray-800 mb-6">Lance Soliman</h1>
@@ -86,7 +86,7 @@ export default function Home() {
             <RotatingText />
           </div>
           <button
-                onClick={() => scrollToSection("about")}
+                onClick={() => scrollToSection("projects")}
                 className= "mt-6 px-8 py-3 rounded-full text-medium font-medium transition-all duration-300 text-white bg-[#01C2DF] shadow-md hover:bg-sky-600"
               >
               See what I've built!
@@ -174,28 +174,28 @@ export default function Home() {
         { 
           name: "WildlifeDB", 
           description: "A web app with an integrated relational database to track wildlife management relationships.",
-          image: "/img/selfpic3.png",
+          image: "/img/wilddb.png",
           link: "https://github.com/solimanlance/WildlifeDB/",
           stack:"SQL, JavaScript, HTML/CSS"
         },
         { 
-          name: "Refine", 
-          description: "An AI advisor that provides students with essay feedback using prompt engineering.",
-          image: "/path/to/project2-image.jpg",
-          link: "https://github.com/solimanlance/refine-HelloHacks",
-          stack:"JavaScript, Node.js, HTML/CSS, Figma"
-        },
-        { 
           name: "Paper Profit", 
           description: "A virtual stock market simulator providing an environment for users to learn about investing.",
-          image: "/path/to/project3-image.jpg",
+          image: "/img/profit2.png",
           link: "https://github.com/solimanlance/paper-profit",
           stack:"Java, Swing, JUnit"
         },
         { 
+          name: "Refine", 
+          description: "An AI advisor that provides students with essay feedback using prompt engineering.",
+          image: "/img/refine1.png",
+          link: "https://github.com/solimanlance/refine-HelloHacks",
+          stack:"JavaScript, Node.js, HTML/CSS, Figma"
+        },
+        { 
           name: "Study With Me", 
           description: "An app focused on connecting UBC students on campus with a dedicated floor plan.",
-          image: "/path/to/project4-image.jpg",
+          image: "/img/study2.png",
           link: "https://github.com/solimanlance/StudyWithMe",
           stack:"Python, Flask, TypeScript, HTML/CSS"
         },
@@ -204,24 +204,24 @@ export default function Home() {
           description: "A classification model to predict Legendary Pokémon status, achiving 76% accuracy.",
           image: "/img/poke.png",
           link: "https://github.com/solimanlance/dsci-100-project",
-          stack:"R, rvest, tidyverse, tidymodels"
+          stack:".R, rvest, tidyverse, tidymodels"
         },
         { 
           name: "Insightful", 
           description: "A Chrome extension to increase web accessibility for those with visual impairment.",
-          image: "/path/to/project6-image.jpg",
+          image: "/img/insight.png",
           link: "https://github.com/solimanlance/Hackcamp-InSightful",
           stack:"JavaScript, HTML/CSS"
         },
        
       ].map((project, index) => (
         <div key={index} className="bg-white rounded-lg shadow-md p-6">
-          <img src={project.image} alt={project.name} className="w-full h-60 object-cover rounded mb-4" />
+          <img src={project.image} alt={project.name} className="w-full h-60 object-cover shadow-md rounded mb-4" />
           <h3 className="text-xl text-sky-900 font-semibold mb-1">{project.name}</h3>
           <p className="text-gray-700 text-sm italic mb-4">{project.stack}</p>
           <p className="text-gray-600 mb-4">{project.description}</p>
           <a href={project.link} target="_blank" rel="noopener noreferrer" 
-             className="text-blue-600 hover:text-blue-800 underline">
+             className="text-sky-500 hover:text-blue-800 underline">
             View on GitHub
           </a>
         </div>
@@ -246,7 +246,7 @@ export default function Home() {
 
       <section id="contact" className="min-h-[300px] flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-5xl font-bold text-gray-800 mb-4">Contact Me</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Contact Me</h2>
           <p className="text-m text-gray-600 max-w-2xl mx-auto mb-8">
             I'm always open to connect or have a chat, so feel free to use one of the social media platforms below to reach out!
           </p>
