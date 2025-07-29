@@ -79,7 +79,7 @@ export default function Home() {
       {/* sections */}
       <section id="home" className="min-h-[850px] flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-6 mt-20">🙋🏻‍♂️ Hey there! I'm</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-6 mt-20">🙋🏻‍♂️ Hey there! I&apos;m</h1>
           <h1 className="text-8xl font-bold text-gray-800 mb-6">Lance Soliman</h1>
           <div className = "-mt-4"> {/* negative margin */}
            
@@ -89,7 +89,7 @@ export default function Home() {
                 onClick={() => scrollToSection("projects")}
                 className= "mt-6 px-8 py-3 rounded-full text-medium font-medium transition-all duration-300 text-white bg-[#01C2DF] shadow-md hover:bg-sky-600"
               >
-              See what I've built!
+              See what I&apos;ve built!
           </button>
         </div>
 
@@ -162,11 +162,11 @@ export default function Home() {
             </a>
           </div>
           <p className="text-l text-gray-800 max-w-2xl mx-auto">
-            I'm currently a 3rd year @ the University of British Columbia pursuing a degree in Computer Science with a minor in Data Science.
+            I&apos;m currently a 3rd year @ the University of British Columbia pursuing a degree in Computer Science with a minor in Data Science.
           </p>
           <br></br>
           <p className="text-l text-gray-800 max-w-2xl mx-auto">
-            Outside of school, you'll probably spot me staying active in some form - bouldering, hiking, or even training for a half-marathon. 
+            Outside of school, you&apos;ll probably spot me staying active in some form - bouldering, hiking, or even training for a half-marathon. 
             Beyond that, I enjoy attending hackathons, videography, and eating at Big Way Hot Pot!
           </p>
           <br>
@@ -260,7 +260,7 @@ export default function Home() {
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Contact Me</h2>
           <p className="text-m text-gray-600 max-w-2xl mx-auto mb-8">
-            I'm always open to connect or have a chat, so feel free to use one of the social media platforms below to reach out!
+            I&apos;m always open to connect or have a chat, so feel free to use one of the social media platforms below to reach out!
           </p>
           {/* <button className="bg-[#01C2DF] text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-sky-600 transition-colors">
             Contact Me
