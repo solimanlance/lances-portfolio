@@ -56,13 +56,13 @@ export default function Home() {
 
       {/* 'navbar' which is just buttons at the top */}
       <nav className="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-8 py-4 shadow-lg">
-          <div className="flex items-center space-x-2">
+        <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-4 md:px-8 py-4 shadow-lg overflow-x-auto max-w-[90vw]">
+          <div className="flex items-center space-x-2 w-max">
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-4 md:px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
                   activeSection === section.id
                     ? 'text-white bg-[#01C2DF] shadow-md'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
@@ -72,11 +72,9 @@ export default function Home() {
               </button>
             ))}
           </div>
-
         </div>
       </nav>
-
-      {/* sections */}
+        {/* sections */}
       <section id="home" className="min-h-[850px] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-6 mt-20">🙋🏻‍♂️ Hey there! I&apos;m</h1>
