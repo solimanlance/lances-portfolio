@@ -28,6 +28,7 @@ export default function Home() {
     }
   };
 
+  // scroll for active section
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
@@ -48,6 +49,40 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+ // fade in animation
+useEffect(() => {
+ const timer = setTimeout(() => {
+   const observerOptions = {
+     threshold: 0.1,
+     rootMargin: '0px 0px -50px 0px'
+   };
+
+   const observer = new IntersectionObserver((entries) => {
+     entries.forEach(entry => {
+       if (entry.isIntersecting) {
+         setTimeout(() => {
+           entry.target.classList.add('animate-in');
+         }, 100);
+         observer.unobserve(entry.target);
+       }
+     });
+   }, observerOptions);
+
+   const sectionsToAnimate = document.querySelectorAll('.fade-scale');
+   
+   sectionsToAnimate.forEach(section => {
+     observer.observe(section);
+   });
+
+   return () => {
+     observer.disconnect();
+   };
+ }, 100); 
+
+ return () => clearTimeout(timer);
+}, []);
+
 
 
 
@@ -75,7 +110,7 @@ export default function Home() {
         </div>
       </nav>
       {/* sections */}
-      <section id="home" className="min-h-[850px] flex items-center justify-center">
+      <section id="home" className="fade-scale min-h-[850px] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-6 mt-20">🙋🏻‍♂️ Hey there! I&apos;m</h1>
           <h1 className="text-8xl font-bold text-gray-800 mb-6">Lance Soliman</h1>
@@ -105,7 +140,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT SECTION */}
-      <section id="about" className="min-h-screen flex items-center justify-center">
+      <section id="about" className="min-h-screen fade-scale flex items-center justify-center">
         <div className="text-center">
           <h2 className="heading-2 mb-10">About Me</h2>
           <Image
@@ -177,7 +212,7 @@ export default function Home() {
 
       {/* PROJECTS SECTION */}
       <section id="projects" className="min-h-[300px] flex items-center justify-center">
-        <div className="text-center">
+        <div className="fade-scale text-center">
           <h2 className="heading-2 mb-10">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
       {[
@@ -225,7 +260,7 @@ export default function Home() {
         },
        
       ].map((project, index) => (
-        <div key={index} className="bg-white rounded-lg shadow-md p-6">
+        <div key={index} className="fade-scale bg-white rounded-lg shadow-md p-6">
           <img src={project.image} alt={project.name} className="w-full h-60 object-cover shadow-md rounded mb-4" />
           <h3 className="text-xl text-sky-900 font-semibold mb-1">{project.name}</h3>
           <p className="text-gray-700 text-sm italic mb-4">{project.stack}</p>
@@ -241,7 +276,7 @@ export default function Home() {
       </section>
 
       {/* SKILLS SECTION */}
-      <section id="skills" className="min-h-[300px] flex items-center justify-center">
+      <section id="skills" className="fade-scale min-h-[300px] flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-5xl font-bold text-gray-800 mb-4">Skills</h2>
           <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
@@ -254,16 +289,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="min-h-[300px] flex items-center justify-center">
+      <section id="contact" className="fade-scale min-h-[300px] flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Contact Me</h2>
           <p className="text-m text-gray-600 max-w-2xl mx-auto mb-8">
             I&apos;m always open to connect or have a chat, so feel free to use one of the social media platforms below to reach out!
           </p>
-          {/* <button className="bg-[#01C2DF] text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-sky-600 transition-colors">
-            Contact Me
-          </button> */}
-           {/* Social Media Icons */}
            <div className="flex justify-center space-x-10 mb-3">
             <a 
               href="https://linkedin.com/in/lance-soliman" 
