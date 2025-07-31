@@ -51,37 +51,37 @@ export default function Home() {
   }, []);
 
  // fade in animation
-useEffect(() => {
- const timer = setTimeout(() => {
-   const observerOptions = {
-     threshold: 0.1,
-     rootMargin: '0px 0px -50px 0px'
-   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-   const observer = new IntersectionObserver((entries) => {
-     entries.forEach(entry => {
-       if (entry.isIntersecting) {
-         setTimeout(() => {
-           entry.target.classList.add('animate-in');
-         }, 100);
-         observer.unobserve(entry.target);
-       }
-     });
-   }, observerOptions);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('animate-in');
+            }, 100);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
 
-   const sectionsToAnimate = document.querySelectorAll('.fade-scale');
-   
-   sectionsToAnimate.forEach(section => {
-     observer.observe(section);
-   });
+      const sectionsToAnimate = document.querySelectorAll('.fade-scale');
+      
+      sectionsToAnimate.forEach(section => {
+        observer.observe(section);
+      });
 
-   return () => {
-     observer.disconnect();
-   };
- }, 100); 
+      return () => {
+        observer.disconnect();
+      };
+    }, 100); 
 
- return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
 
 
@@ -194,17 +194,17 @@ useEffect(() => {
               </svg>
             </a>
           </div>
-          <p className="text-l text-gray-800 max-w-2xl mx-auto">
+          <p className="paragraph-centered">
             I&apos;m currently a 3rd year @ the University of British Columbia pursuing a degree in Computer Science with a minor in Data Science.
           </p>
           <br></br>
-          <p className="text-l text-gray-800 max-w-2xl mx-auto">
+          <p className="paragraph-centered">
             Outside of school, you&apos;ll probably spot me staying active in some form - bouldering, hiking, or even training for a half-marathon. 
             Beyond that, I enjoy attending hackathons, videography, and eating at Big Way Hot Pot!
           </p>
           <br>
           </br>
-          <p className="text-l text-gray-800 max-w-2xl mx-auto">
+          <p className="paragraph-centered mb-10   lg:mb-0 md:mb-0">
             If you wanna connect, you can reach me at the socials above!
           </p>
         </div>
@@ -270,15 +270,15 @@ useEffect(() => {
             View on GitHub
           </a>
         </div>
-      ))}
-    </div>
+          ))}
+            </div>
         </div>
       </section>
 
       {/* SKILLS SECTION */}
       <section id="skills" className="fade-scale min-h-[300px] flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-5xl font-bold text-gray-800 mb-4">Skills</h2>
+          <h2 className="text-5xl font-bold text-gray-800 mb-4 mt-8 lg:mt-0 md:mt-0">Skills</h2>
           <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
             {['Java', 'Python', 'R', 'HTML/CSS', 'JavaScript', 'C++', 'SQL', 'C', 'Git', 'JUnit', 'Node.js', 'React', 'pandas', 'sckit-learn', 'tidyverse'].map((skill) => (
               <span key={skill} className="bg-blue-100 text-sky-800 px-5 py-2 rounded-full font-medium">
@@ -292,7 +292,7 @@ useEffect(() => {
       <section id="contact" className="fade-scale min-h-[300px] flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Contact Me</h2>
-          <p className="text-m text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="paragraph-centered text-gray-600 mb-8">
             I&apos;m always open to connect or have a chat, so feel free to use one of the social media platforms below to reach out!
           </p>
            <div className="flex justify-center space-x-10 mb-3">
