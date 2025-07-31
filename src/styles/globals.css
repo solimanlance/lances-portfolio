@@ -37,3 +37,14 @@ html {
 .heading-2 {
   @apply text-6xl font-bold text-gray-800;
 }
+
+.fade-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-scale.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
