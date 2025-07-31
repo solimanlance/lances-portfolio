@@ -48,3 +48,8 @@ html {
   opacity: 1;
   transform: scale(1);
 }
+@layer components { 
+  .paragraph-centered {
+    @apply text-base text-gray-800 max-w-2xl mx-auto px-3 lg:px-1;
+  }
+}
