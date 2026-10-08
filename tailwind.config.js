@@ -6,8 +6,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        bg: "var(--bg)",
+        ink: "var(--ink)",
+        expo: "var(--expo)",
+        canada: "var(--canada)",
+        "canada-sign": "var(--canada-sign)",
+        yellow: "var(--yellow)",
+        grey: "var(--grey)",
+        rule: "var(--rule)",
+        hair: "var(--hair)",
+      },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        sans: ["var(--font-grotesk)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },
   },

@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "title": "Lance Soliman",
+    "description": "Computer science student at UBC. Software engineering portfolio.",
+    "lang": "en"
+  },
+  "hero": {
+    "name": "Lance Soliman",
+    "rotating": [
+      "a computer science student at UBC.",
+      { "text": "a wannabe marathon runner.", "strike": "wannabe" },
+      "a SpongeBob fanatic.",
+      "a caffeine enjoyer.",
+      { "text": "a daily commuter.", "highlight": "commuter" }
+    ],
+    "intro": "I'm Lance, a fourth-year CS student at UBC pursuing a minor in Data Science. I'm interested in machine learning and in building clean, purposeful software. Outside of coding, you'll spot me staying active in some form: bouldering, hiking, or training for my next marathon.",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "TODO: https://github.com/..."
+      },
+      {
+        "label": "LinkedIn",
+        "href": "TODO: https://linkedin.com/in/..."
+      },
+      {
+        "label": "Résumé",
+        "href": "TODO: /resume.pdf"
+      },
+      {
+        "label": "Email",
+        "href": "TODO: mailto:..."
+      }
+    ]
+  },
+  "ui": {
+    "zones": [
+      {
+        "year": 2024,
+        "label": "Zone ’24"
+      },
+      {
+        "year": 2025,
+        "label": "Zone ’25"
+      },
+      {
+        "year": 2026,
+        "label": "Zone ’26"
+      }
+    ],
+    "legend": {
+      "work": "Work",
+      "projects": "Projects",
+      "hackathon": "Hackathon branch"
+    },
+    "hint": "Click a station to see what's there.",
+    "hintTouch": "Tap a station…",
+    "wip": "Under construction",
+    "close": "Close",
+    "mapTitle": "Map of Lance's work and projects, 2024 to 2026"
+  },
+  "stations": [
+    {
+      "id": "portfolio",
+      "label": "Portfolio\nWebsite",
+      "title": "Portfolio Website",
+      "dates": "TODO: e.g. Jun 2026–",
+      "start": "TODO: YYYY-MM",
+      "end": null,
+      "line": "projects",
+      "wip": true,
+      "tagline": "TODO: one-line tagline",
+      "body": [
+        "TODO: 2–3 sentences"
+      ],
+      "stack": [
+        "TODO: stack"
+      ],
+      "links": [
+        {
+          "label": "TODO: link label",
+          "href": "TODO: url"
+        }
+      ]
+    },
+    {
+      "id": "nba",
+      "label": "NBA Fantasy\nModel",
+      "title": "NBA Fantasy Model",
+      "dates": "TODO: e.g. Jun 2026–",
+      "start": "TODO: YYYY-MM",
+      "end": null,
+      "line": "projects",
+      "wip": true,
+      "tagline": "TODO: one-line tagline",
+      "body": [
+        "TODO: 2–3 sentences"
+      ],
+      "stack": [
+        "TODO: stack"
+      ],
+      "links": [
+        {
+          "label": "TODO: link label",
+          "href": "TODO: url"
+        }
+      ]
+    },
+    {
+      "id": "eoas",
+      "label": "EOAS",
+      "title": "UBC Earth, Ocean and Atmospheric Sciences · Data Analyst",
+      "dates": "Jan–May 2026",
+      "start": "2026-01",
+      "end": "2026-05",
+      "line": "work",
+      "wip": false,
+      "tagline": "Cleaned 11 years of ocean data and kept an oceanographic atlas running.",
+      "body": [
+        "I cleaned and validated 11 years of nutrient and CTD (conductivity, temperature, depth) data, making more than 900 corrections. To do it, I audited inconsistent legacy code and adapted a MATLAB quality-control pipeline to handle year-by-year differences.",
+        "I wrote automated QC scripts that standardise new data from 2024 onwards against the historical record.",
+        "I also maintained the Atlas of Oceanographic Conditions, building the back-end pipelines and plots that compare conditions across the inlets of the Strait of Georgia."
+      ],
+      "stack": [
+        "MATLAB",
+        "data pipelines",
+        "QC automation"
+      ],
+      "links": []
+    },
+    {
+      "id": "insights",
+      "label": "Campus\nInsights",
+      "title": "Campus Insights",
+      "dates": "Sep 2025–Jan 2026",
+      "start": "2025-09",
+      "end": "2026-01",
+      "line": "projects",
+      "wip": false,
+      "tagline": "A query engine and dashboard for exploring UBC data.",
+      "body": [
+        "This is a full-stack app for exploring UBC data, built by a two-person team in Scrum sprints.",
+        "It's powered by a custom query engine implemented from an EBNF specification, with the results charted in a React + Vite front end using Chart.js.",
+        "I wrote more than 50 Mocha/Chai integration tests, which caught 8 regressions and let us refactor without fear."
+      ],
+      "stack": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Chart.js",
+        "Mocha/Chai",
+        "REST"
+      ],
+      "links": [
+        {
+          "label": "Repo",
+          "href": "TODO"
+        }
+      ]
+    },
+    {
+      "id": "wildlife",
+      "label": "WildlifeDB",
+      "title": "WildlifeDB",
+      "dates": "Feb–Apr 2025",
+      "start": "2025-02",
+      "end": "2025-04",
+      "line": "projects",
+      "wip": false,
+      "tagline": "A relational database that puts conservation records in one place.",
+      "body": [
+        "This full-stack platform centralises wildlife-management and conservation data for non-technical users on a relational database.",
+        "I modelled the ER diagram, normalised the schema to 3NF, and enforced referential integrity with cascading operations, which made the database about 30% faster.",
+        "All 10 SQL endpoints are parameterised and sanitise every input, and data retrieval got about 50% faster."
+      ],
+      "stack": [
+        "Oracle SQL",
+        "JavaScript",
+        "HTML/CSS"
+      ],
+      "links": [
+        {
+          "label": "Repo",
+          "href": "TODO"
+        }
+      ]
+    },
+    {
+      "id": "hellohacks",
+      "label": "Refine",
+      "title": "Refine · HelloHacks 2024",
+      "dates": "Sep 2024",
+      "start": "2024-09",
+      "end": "2024-09",
+      "line": "hackathon",
+      "wip": false,
+      "tagline": "AI essay feedback for students, built in 48 hours.",
+      "body": [
+        "This web app gives students personalised essay feedback from GPT-4, and we built it in under 48 hours.",
+        "I worked on the prompt engineering behind the feedback, and I prototyped the interface in Figma before building it out with a mentor's guidance."
+      ],
+      "stack": [
+        "JavaScript",
+        "Node.js",
+        "OpenAI API",
+        "Figma"
+      ],
+      "links": [
+        {
+          "label": "Repo",
+          "href": "TODO"
+        }
+      ]
+    },
+    {
+      "id": "stocksim",
+      "label": "Paper Profit",
+      "title": "Paper Profit",
+      "dates": "Feb–Apr 2024",
+      "start": "2024-02",
+      "end": "2024-04",
+      "line": "projects",
+      "wip": false,
+      "tagline": "A risk-free stock market simulator for learning to invest.",
+      "body": [
+        "This is a risk-free virtual stock market for learning to invest, delivering 9 user stories.",
+        "It has a Java Swing GUI and saves and loads portfolios as JSON.",
+        "I built it test-first with JUnit to 100% coverage and planned it with a UML class diagram."
+      ],
+      "stack": [
+        "Java",
+        "Swing",
+        "JUnit",
+        "JSON"
+      ],
+      "links": [
+        {
+          "label": "Repo",
+          "href": "TODO"
+        }
+      ]
+    }
+  ],
+  "terminus": {
+    "id": "contact",
+    "short": "Contact",
+    "text": "End of the line. Email me or grab my résumé.",
+    "email": "TODO: you@example.com",
+    "resume": "TODO: /resume.pdf"
+  }
+}
