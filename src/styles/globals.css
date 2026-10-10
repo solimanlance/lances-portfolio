@@ -24,3 +24,64 @@ body { font-size: 18px; line-height: 1.55; }
 :focus-visible { outline: 2px solid var(--expo); outline-offset: 3px; }
 
 a { color: var(--expo); text-underline-offset: 3px; }
+
+/* a placeholder link: content.json still says TODO. visible on purpose. */
+.todo {
+  text-decoration-style: dashed;
+}
+.todo::after {
+  content: "TODO";
+  margin-left: 4px;
+  padding: 0 3px;
+  font: 10px/1.4 var(--font-mono), ui-monospace, monospace;
+  vertical-align: 2px;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+/* page layout */
+
+.hero {
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  min-height: 100svh;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+}
+
+/* hero text */
+
+.hero-text {
+  padding: 48px clamp(16px, 2vw, 32px) 48px clamp(16px, 5vw, 88px);
+}
+.hero-name {
+  margin: 0;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+.hero-intro {
+  max-width: 32rem;
+  margin: 0.6em 0 0;
+}
+.hero-links {
+  margin: 1.4em 0 0;
+  font-size: 17px;
+  color: var(--grey);
+}
+.hero-links a {
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .hero-text {
+    padding: 56px 16px 24px;
+  }
+}

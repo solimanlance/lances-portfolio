@@ -1,0 +1,1 @@
+export const isTodo = (value) => typeof value === "string" && value.startsWith("TODO");
