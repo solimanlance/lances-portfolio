@@ -1,11 +1,15 @@
 import { Fragment } from "react";
 import { isTodo } from "./stations";
+import RotatingText from "./RotatingText";
 
 // left column: the stacked name, the rotating line, the intro and the links.
 export default function Hero({ hero }) {
   return (
     <div className="hero-text">
       <h1 className="hero-name">{hero.name}</h1>
+      <p className="hero-rotating">
+        <RotatingText phrases={hero.rotating} />
+      </p>
       <p className="hero-intro">{hero.intro}</p>
       <p className="hero-links">
         {hero.links.map((link, i) => (
