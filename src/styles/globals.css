@@ -86,6 +86,27 @@ a { color: var(--expo); text-underline-offset: 3px; }
 @keyframes blink {
   50% { opacity: 0; }
 }
+/* rotating-word treatments */
+.hl {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.strike {
+  position: relative;
+}
+.strike::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 55%;
+  height: 2px;
+  width: 0;
+  background: currentColor;
+  transition: width 250ms ease-out;
+}
+.strike.is-struck::after {
+  width: 100%;
+}
 .hero-intro {
   max-width: 32rem;
   margin: 0.6em 0 0;
