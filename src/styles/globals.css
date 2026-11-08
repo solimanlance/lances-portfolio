@@ -125,3 +125,9 @@ a { color: var(--expo); text-underline-offset: 3px; }
     padding: 56px 16px 24px;
   }
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .caret { animation: none; }
+  .strike::after { transition: none; }
+}
