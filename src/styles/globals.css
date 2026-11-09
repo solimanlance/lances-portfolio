@@ -197,6 +197,7 @@ a { color: var(--expo); text-underline-offset: 3px; }
 .station-dot {
   fill: #fff;
   stroke-width: 4;
+  transition: fill 150ms ease-out;
 }
 .station--work .station-dot {
   stroke: var(--canada);
@@ -215,9 +216,40 @@ a { color: var(--expo); text-underline-offset: 3px; }
   stroke-width: 6px;
   stroke-linejoin: round;
 }
+.station.is-hot .station-dot,
+.station.is-open .station-dot {
+  fill: var(--yellow);
+}
+.station.is-hot .station-label,
+.station.is-open .station-label {
+  font-weight: 800;
+}
+
+/* Real <button>s laid over each SVG station (circle + label). */
+.map-hits {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.map-hit {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.map-hit:focus {
+  outline: none;
+}
+.map-hit:focus-visible {
+  outline: 2px solid var(--expo);
+  outline-offset: 2px;
+}
 
 
 @media (prefers-reduced-motion: reduce) {
   .caret { animation: none; }
   .strike::after { transition: none; }
+  .station-dot { transition: none; }
 }
