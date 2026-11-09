@@ -55,7 +55,7 @@ export default function TransitMap({ stations, ui, openId, onToggle }) {
   return (
     <div className="map-figure">
       <svg ref={svg} viewBox={`0 0 ${VIEW.w} ${VIEW.h}`} role="img" aria-label={ui.mapTitle} data-lit={lit ?? undefined}>
-        <g>
+        <g className="fade">
           {ZONES.slice(1).map((z) => (
             <line key={z.year} className="zone-edge" x1={z.x0} y1={ZONE_EDGE.y0} x2={z.x0} y2={ZONE_EDGE.y1} />
           ))}
@@ -66,17 +66,18 @@ export default function TransitMap({ stations, ui, openId, onToggle }) {
           ))}
         </g>
 
+        {/* pathLength=1 lets one dash value draw every path */}
         <g className="line line--projects" {...lineHover("projects")}>
-          <path className="track" d={LINES.projects} />
-          <path className="track track--branch" d={LINES.hackathon} />
-          <path className="track track--wip" d={LINES.wip} />
+          <path className="track draw" pathLength="1" d={LINES.projects} />
+          <path className="track track--branch draw" pathLength="1" d={LINES.hackathon} style={{ animationDelay: "250ms" }} />
+          <path className="track track--wip fade" d={LINES.wip} />
         </g>
         <g className="line line--work" {...lineHover("work")}>
-          <path className="track" d={LINES.work} />
+          <path className="track draw" pathLength="1" d={LINES.work} style={{ animationDelay: "150ms" }} />
         </g>
-        <circle className="crossing" cx={CROSSING.x} cy={CROSSING.y} r="4" />
+        <circle className="crossing fade" cx={CROSSING.x} cy={CROSSING.y} r="4" />
 
-        <g>
+        <g className="fade">
           {stations.map((s) => {
             const at = STATIONS[s.id];
             if (!at) return null;
@@ -96,7 +97,7 @@ export default function TransitMap({ stations, ui, openId, onToggle }) {
           })}
         </g>
 
-        <g className="legend" aria-hidden="true">
+        <g className="legend fade" aria-hidden="true">
           {[
             ["work", "var(--canada)", 6],
             ["projects", "var(--expo)", 6],
