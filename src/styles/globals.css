@@ -48,10 +48,24 @@ a { color: var(--expo); text-underline-offset: 3px; }
   align-items: center;
 }
 
+.map {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 32px clamp(16px, 3vw, 48px) 32px 0;
+}
+.map-inner {
+  width: 100%;
+}
+
 @media (max-width: 800px) {
   .hero {
     grid-template-columns: minmax(0, 1fr);
     min-height: 0;
+  }
+  .map {
+    padding: 8px 16px 48px;
   }
 }
 
@@ -124,6 +138,82 @@ a { color: var(--expo); text-underline-offset: 3px; }
   .hero-text {
     padding: 56px 16px 24px;
   }
+}
+
+
+/* the map (desktop) */
+
+/* The figure keeps the SVG's aspect ratio and caps its height to the
+   viewport, so the whole map fits on one screen. */
+.map-figure {
+  position: relative;
+  max-width: calc((100svh - 120px) * 800 / 460);
+}
+.map-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.zone-edge {
+  stroke: var(--hair);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 6;
+}
+.zone-label,
+.legend text {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  fill: var(--grey);
+}
+.zone-label {
+  font-size: 14px;
+}
+.legend text {
+  font-size: 12px;
+}
+
+.track {
+  fill: none;
+  stroke-width: 14;
+  stroke-linejoin: round;
+}
+.line--projects .track {
+  stroke: var(--expo);
+}
+.line--projects .track--branch {
+  stroke-width: 7;
+}
+.line--projects .track--wip {
+  stroke-dasharray: 12 8;
+}
+.line--work .track {
+  stroke: var(--canada);
+}
+.crossing {
+  fill: var(--expo);
+}
+
+.station-dot {
+  fill: #fff;
+  stroke-width: 4;
+}
+.station--work .station-dot {
+  stroke: var(--canada);
+}
+.station--projects .station-dot,
+.station--hackathon .station-dot {
+  stroke: var(--expo);
+}
+.station-label {
+  font-size: 21px;
+  font-weight: 700;
+  fill: var(--ink);
+  /* a halo so labels stay legible over a zone edge or a line */
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 6px;
+  stroke-linejoin: round;
 }
 
 

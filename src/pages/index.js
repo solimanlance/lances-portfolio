@@ -1,8 +1,9 @@
 import Head from "next/head";
 import content from "../../content.json";
 import Hero from "@/components/Hero";
+import TransitMap from "@/components/TransitMap";
 
-const { meta, hero } = content;
+const { meta, ui, hero, stations } = content;
 
 export default function Home() {
   return (
@@ -11,10 +12,14 @@ export default function Home() {
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
       </Head>
-      <main>
-        <main className="hero">
+
+      <main className="hero">
         <Hero hero={hero} />
-        </main>
+        <nav className="map" aria-label={ui.mapTitle}>
+          <div className="map-inner">
+            <TransitMap stations={stations} ui={ui} />
+          </div>
+        </nav>
       </main>
     </>
   );
