@@ -177,6 +177,7 @@ a { color: var(--expo); text-underline-offset: 3px; }
   fill: none;
   stroke-width: 14;
   stroke-linejoin: round;
+  transition: stroke-width 150ms ease-out, opacity 150ms ease-out;
 }
 .line--projects .track {
   stroke: var(--expo);
@@ -192,6 +193,23 @@ a { color: var(--expo); text-underline-offset: 3px; }
 }
 .crossing {
   fill: var(--expo);
+  transition: opacity 150ms ease-out;
+}
+
+/* Hovering a line: thicken it, dim the others. */
+svg[data-lit] .track {
+  opacity: 0.25;
+}
+svg[data-lit] .crossing {
+  opacity: 0.35;
+}
+svg[data-lit="projects"] .line--projects .track,
+svg[data-lit="work"] .line--work .track {
+  opacity: 1;
+  stroke-width: 22;
+}
+svg[data-lit="projects"] .line--projects .track--branch {
+  stroke-width: 11;
 }
 
 .station-dot {
@@ -251,5 +269,7 @@ a { color: var(--expo); text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   .caret { animation: none; }
   .strike::after { transition: none; }
+  .track,
+  .crossing,
   .station-dot { transition: none; }
 }

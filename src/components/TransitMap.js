@@ -27,6 +27,7 @@ function circleBoxes() {
 // from mapLayout.js, words come from content.json.
 export default function TransitMap({ stations, ui, openId, onToggle }) {
   const svg = useRef(null);
+  const [lit, setLit] = useState(null);
   const [hot, setHot] = useState(null);
   const [boxes, setBoxes] = useState(circleBoxes);
 
@@ -46,10 +47,14 @@ export default function TransitMap({ stations, ui, openId, onToggle }) {
   }, []);
 
   const zoneLabel = (year) => ui.zones.find((z) => z.year === year)?.label;
+  const lineHover = (line) => ({
+    onMouseEnter: () => setLit(line),
+    onMouseLeave: () => setLit(null),
+  });
 
   return (
     <div className="map-figure">
-      <svg ref={svg} viewBox={`0 0 ${VIEW.w} ${VIEW.h}`} role="img" aria-label={ui.mapTitle}>
+      <svg ref={svg} viewBox={`0 0 ${VIEW.w} ${VIEW.h}`} role="img" aria-label={ui.mapTitle} data-lit={lit ?? undefined}>
         <g>
           {ZONES.slice(1).map((z) => (
             <line key={z.year} className="zone-edge" x1={z.x0} y1={ZONE_EDGE.y0} x2={z.x0} y2={ZONE_EDGE.y1} />
@@ -61,12 +66,12 @@ export default function TransitMap({ stations, ui, openId, onToggle }) {
           ))}
         </g>
 
-        <g className="line line--projects">
+        <g className="line line--projects" {...lineHover("projects")}>
           <path className="track" d={LINES.projects} />
           <path className="track track--branch" d={LINES.hackathon} />
           <path className="track track--wip" d={LINES.wip} />
         </g>
-        <g className="line line--work">
+        <g className="line line--work" {...lineHover("work")}>
           <path className="track" d={LINES.work} />
         </g>
         <circle className="crossing" cx={CROSSING.x} cy={CROSSING.y} r="4" />
