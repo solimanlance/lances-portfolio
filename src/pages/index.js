@@ -2,12 +2,13 @@ import Head from "next/head";
 import content from "../../content.json";
 import Hero from "@/components/Hero";
 import TransitMap from "@/components/TransitMap";
+import MapHint from "@/components/MapHint";
 import useStationPanel from "@/components/useStationPanel";
 
 const { meta, ui, hero, stations } = content;
 
 export default function Home() {
-  const { openId, toggle } = useStationPanel();
+  const { openId, opened, toggle } = useStationPanel();
 
   return (
     <>
@@ -21,6 +22,7 @@ export default function Home() {
         <nav className="map" aria-label={ui.mapTitle}>
           <div className="map-inner">
             <TransitMap stations={stations} ui={ui} openId={openId} onToggle={toggle} />
+            <MapHint ui={ui} done={opened} />
           </div>
         </nav>
       </main>

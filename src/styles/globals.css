@@ -289,6 +289,43 @@ svg[data-lit="projects"] .line--projects .track--branch {
 }
 
 
+/* hint */
+
+.map-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding-left: calc(20 / 800 * 100%); /* lines up with the legend */
+  font-size: 1rem;
+  line-height: 1.4;
+  color: rgb(22 25 29 / 0.7);
+}
+.map-hint.is-done {
+  visibility: hidden; /* keeps its space: no layout shift */
+}
+.map-hint-dot {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+.map-hint-dot circle {
+  fill: #fff;
+  stroke: var(--expo);
+  stroke-width: 3;
+}
+.hint-touch {
+  display: none;
+}
+@media (hover: none) and (pointer: coarse) {
+  .hint-pointer {
+    display: none;
+  }
+  .hint-touch {
+    display: inline;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .draw {
     animation: none;
