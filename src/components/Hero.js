@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import { isTodo } from "./stations";
 import RotatingText from "./RotatingText";
+import { isTodo } from "./stations";
 
-// left column: the stacked name, the rotating line, the intro and the links.
+// Left column: the stacked name, the rotating line, the intro and the links.
 export default function Hero({ hero }) {
   return (
     <div className="hero-text">
@@ -14,7 +14,7 @@ export default function Hero({ hero }) {
       <p className="hero-links">
         {hero.links.map((link, i) => (
           <Fragment key={link.label}>
-            {i > 0 && " - "}
+            {i > 0 && " · "}
             {isTodo(link.href) ? (
               <a className="todo" href="#" title={link.href}>
                 {link.label}
