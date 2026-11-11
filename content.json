@@ -58,8 +58,8 @@
   "stations": [
     {
       "id": "portfolio",
-      "label": "Portfolio\nWebsite",
-      "title": "Portfolio Website",
+      "label": "TODO",
+      "title": "TODO: project name",
       "dates": "TODO: e.g. Jun 2026–",
       "start": "TODO: YYYY-MM",
       "end": null,
@@ -81,8 +81,8 @@
     },
     {
       "id": "nba",
-      "label": "NBA Fantasy\nModel",
-      "title": "NBA Fantasy Model",
+      "label": "TODO",
+      "title": "TODO: project name",
       "dates": "TODO: e.g. Jun 2026–",
       "start": "TODO: YYYY-MM",
       "end": null,
