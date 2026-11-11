@@ -326,6 +326,114 @@ svg[data-lit="projects"] .line--projects .track--branch {
   }
 }
 
+/* station panel */
+
+.panel {
+  position: absolute;
+  z-index: 20;
+  width: min(340px, calc(100vw - 32px));
+  background: var(--bg);
+  border: 1px solid var(--hair);
+  --rise: 6px;
+  animation: panel-in 150ms ease-out;
+}
+.panel[hidden] {
+  display: none;
+}
+.panel:focus {
+  outline: none;
+}
+.panel:focus-visible {
+  outline: 2px solid var(--expo);
+  outline-offset: 2px;
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--rise));
+  }
+}
+
+.panel-bar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 12px;
+  row-gap: 2px;
+  padding: 10px 44px 10px 16px; /* room for the × */
+  background: var(--c);
+  color: #fff;
+}
+.panel-title {
+  flex: 0 1 auto;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.panel-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgb(255 255 255 / 0.92); /* lowest opacity that keeps AA on --canada-sign */
+  white-space: nowrap;
+  margin-left: auto; /* right-aligned; wraps under a long title */
+}
+.panel-wip {
+  padding: 0 5px;
+  border: 1px solid currentColor;
+  font-size: 12px;
+}
+.panel-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+.panel-close:hover {
+  background: rgb(255 255 255 / 0.16);
+}
+.panel-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+}
+
+.panel-body {
+  padding: 14px 16px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.panel-body p {
+  margin: 0 0 10px;
+}
+.panel-body > :last-child {
+  margin-bottom: 0;
+}
+.panel-tagline {
+  font-size: 16px;
+  font-weight: 700;
+}
+.panel-stack {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--grey);
+}
+.panel-links {
+  font-weight: 700;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .draw {
     animation: none;
@@ -335,7 +443,8 @@ svg[data-lit="projects"] .line--projects .track--branch {
   .fade {
     animation: none;
   }
-  .caret { animation: none; }
+  .caret,
+  .panel { animation: none; }
   .strike::after { transition: none; }
   .track,
   .crossing,

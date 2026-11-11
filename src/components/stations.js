@@ -6,3 +6,10 @@ export const isTodo = (value) => typeof value === "string" && value.startsWith("
 // A station's one-line name, for buttons and screen readers.
 export const stationName = (s, ui) =>
   [s.label.replace(/\n/g, " "), s.dates, s.wip && ui.wip].filter(Boolean).join(", ");
+
+// The panel bar colour for each line.
+export const BAR_COLOUR = {
+  work: "var(--canada-sign)",
+  projects: "var(--expo)",
+  hackathon: "var(--expo)",
+};

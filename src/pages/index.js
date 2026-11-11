@@ -3,12 +3,13 @@ import content from "../../content.json";
 import Hero from "@/components/Hero";
 import TransitMap from "@/components/TransitMap";
 import MapHint from "@/components/MapHint";
+import StationPanels from "@/components/StationPanels";
 import useStationPanel from "@/components/useStationPanel";
 
 const { meta, ui, hero, stations } = content;
 
 export default function Home() {
-  const { openId, opened, toggle } = useStationPanel();
+  const { openId, opened, toggle, close } = useStationPanel();
 
   return (
     <>
@@ -26,6 +27,8 @@ export default function Home() {
           </div>
         </nav>
       </main>
+
+      <StationPanels stations={stations} ui={ui} openId={openId} onClose={close} />
     </>
   );
 }
