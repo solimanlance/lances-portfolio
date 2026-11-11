@@ -2,6 +2,7 @@ import Head from "next/head";
 import content from "../../content.json";
 import Hero from "@/components/Hero";
 import TransitMap from "@/components/TransitMap";
+import MobileLine from "@/components/MobileLine";
 import MapHint from "@/components/MapHint";
 import StationPanels from "@/components/StationPanels";
 import useStationPanel from "@/components/useStationPanel";
@@ -23,6 +24,7 @@ export default function Home() {
         <nav className="map" aria-label={ui.mapTitle}>
           <div className="map-inner">
             <TransitMap stations={stations} ui={ui} openId={openId} onToggle={toggle} />
+            <MobileLine stations={stations} ui={ui} openId={openId} onToggle={toggle} />
             <MapHint ui={ui} done={opened} />
           </div>
         </nav>

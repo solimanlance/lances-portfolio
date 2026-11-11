@@ -326,6 +326,141 @@ svg[data-lit="projects"] .line--projects .track--branch {
   }
 }
 
+@media (max-width: 699px) {
+  .map-figure {
+    display: none;
+  }
+  .map-hint {
+    padding-left: 0;
+  }
+}
+
+/* mobile line (<700px) */
+
+/* Each row draws its own stretch of line, so WIP rows can be dashed and the
+   line starts and ends exactly on the first and last stations. */
+.mline {
+  display: none;
+  --lw: 6px; /* line width */
+  --cx: 12px; /* line centre */
+  --dot: 22px;
+  --dot-y: 13px; /* dot top, inside a row */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mline > li {
+  position: relative;
+  padding-left: 40px;
+}
+.mline > li::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--cx) - var(--lw) / 2);
+  top: 0;
+  bottom: 0;
+  width: var(--lw);
+  background: var(--expo);
+}
+.mline-zone {
+  padding-top: 18px;
+  padding-bottom: 2px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--grey);
+}
+.mline-zone.is-first {
+  padding-top: 0;
+}
+.mline-zone.is-first::before {
+  display: none;
+}
+.mline-stop.is-first::before {
+  top: calc(var(--dot-y) + var(--dot) / 2);
+}
+.mline-stop.is-last::before {
+  bottom: auto;
+  height: calc(var(--dot-y) + var(--dot) / 2);
+}
+.mline-stop.is-wip::before {
+  background: repeating-linear-gradient(to bottom, var(--expo) 0 10px, transparent 10px 16px);
+}
+
+.mline-button {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: var(--ink);
+  cursor: pointer;
+}
+.mline-dot {
+  position: absolute;
+  left: calc(var(--cx) - var(--dot) / 2);
+  top: var(--dot-y);
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid var(--expo);
+}
+.mline-stop--work .mline-dot {
+  border-color: var(--canada);
+}
+.mline-button[aria-expanded="true"] .mline-dot {
+  background: var(--yellow);
+}
+.mline-name {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.mline-button[aria-expanded="true"] .mline-name {
+  font-weight: 800;
+}
+.mline-button:hover .mline-name {
+  text-decoration: underline;
+  text-decoration-color: var(--expo);
+}
+.mline-dates {
+  display: block;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--grey);
+}
+
+/* The hackathon station sits off the line on a short narrow stub. */
+.mline-stop--hackathon {
+  --off: 26px;
+}
+.mline-stop--hackathon > .mline-button {
+  padding-left: var(--off);
+}
+.mline-stop--hackathon .mline-dot {
+  left: calc(var(--cx) - var(--dot) / 2 + var(--off));
+}
+.mline-stop--hackathon::after {
+  content: "";
+  position: absolute;
+  left: var(--cx);
+  top: calc(var(--dot-y) + var(--dot) / 2 - 1.5px);
+  width: calc(var(--off) - var(--dot) / 2 + 2px); /* stops at the dot's rim */
+  height: 3px;
+  background: var(--expo);
+}
+
+@media (max-width: 699px) {
+  .mline {
+    display: block;
+  }
+}
+
 /* station panel */
 
 .panel {
@@ -432,6 +567,27 @@ svg[data-lit="projects"] .line--projects .track--branch {
 }
 .panel-links {
   font-weight: 700;
+}
+
+@media (max-width: 699px) {
+  /* bottom sheet */
+  .panel {
+    position: fixed;
+    left: 0 !important;
+    right: 0;
+    top: auto !important;
+    bottom: 0;
+    width: auto;
+    height: 60vh;
+    height: 60svh;
+    overflow-y: auto;
+    border-width: 1px 0 0;
+    --rise: 24px;
+  }
+  .panel-bar {
+    position: sticky;
+    top: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
